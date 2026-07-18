@@ -1,21 +1,28 @@
 import './App.css'
 import logo from './assets/logo_01_pequeno.png'
-import generic from './assets/generic_01.png'
+import heroImage from './assets/hero_01.jpeg'
+import destino01 from './assets/destino_01.jpeg'
+import destino02 from './assets/destino_02.jpeg'
+import destino03 from './assets/destino_03.jpeg'
 import {
+  brandContent,
   navLinks,
   featuredTrips,
   highlights,
-  testimonials,
+  serviceSteps,
   trustItems,
+  contactInfo,
 } from './data/siteContent'
+
+const tripImages = [destino01, destino02, destino03]
 
 function App() {
   return (
     <div className="site-shell">
       <header className="site-header">
         <div className="site-header__inner">
-          <a className="brand" href="#top" aria-label="Machado Viagens">
-            <img src={logo} alt="Logo Machado Viagens" />
+          <a className="brand" href="#top" aria-label={brandContent.name}>
+            <img src={logo} alt={`Logo ${brandContent.name}`} />
           </a>
 
           <nav className="main-nav" aria-label="Navegação principal">
@@ -26,8 +33,13 @@ function App() {
             ))}
           </nav>
 
-          <a className="btn btn--primary btn--header" href="#contato">
-            Planejar viagem
+          <a
+            className="btn btn--primary btn--header"
+            href={brandContent.primaryCta.href}
+            target="_blank"
+            rel="noreferrer"
+          >
+            {brandContent.primaryCta.label}
           </a>
         </div>
       </header>
@@ -35,25 +47,28 @@ function App() {
       <main id="top">
         <section className="hero section">
           <div className="hero__content">
-            <span className="eyebrow">Agência de viagens com curadoria premium</span>
+            <span className="eyebrow">{brandContent.eyebrow}</span>
 
-            <h1>
-              Viagens pensadas com elegância, segurança e atenção aos detalhes.
-            </h1>
+            <h1>{brandContent.title}</h1>
 
-            <p className="hero__text">
-              A nova presença digital da Machado Viagens deve comunicar confiança,
-              estética refinada e atendimento consultivo. Nesta primeira versão,
-              usamos a imagem `generic` como placeholder para definir composição,
-              respiro e hierarquia visual.
-            </p>
+            {brandContent.description.map((paragraph) => (
+              <p key={paragraph} className="hero__text">
+                {paragraph}
+              </p>
+            ))}
 
             <div className="hero__actions">
-              <a className="btn btn--primary" href="#destinos">
-                Ver inspirações
+              <a
+                className="btn btn--primary"
+                href={brandContent.primaryCta.href}
+                target="_blank"
+                rel="noreferrer"
+              >
+                {brandContent.primaryCta.label}
               </a>
-              <a className="btn btn--secondary" href="#diferenciais">
-                Entender a proposta
+
+              <a className="btn btn--secondary" href={brandContent.secondaryCta.href}>
+                {brandContent.secondaryCta.label}
               </a>
             </div>
 
@@ -67,17 +82,15 @@ function App() {
           <div className="hero__visual">
             <div className="hero__image-card">
               <img
-                src={generic}
-                alt="Imagem placeholder usada para definir posições e composição visual"
+                src={heroImage}
+                alt="Imagem principal da Machado Viagens"
               />
             </div>
 
             <div className="hero__floating-card">
-              <span className="hero__floating-label">Posicionamento inicial</span>
-              <strong>Marca premium com tom consultivo</strong>
-              <p>
-                Priorize clareza, confiança e uma apresentação visual sofisticada.
-              </p>
+              <span className="hero__floating-label">{brandContent.floatingCard.label}</span>
+              <strong>{brandContent.floatingCard.title}</strong>
+              <p>{brandContent.floatingCard.text}</p>
             </div>
           </div>
         </section>
@@ -92,22 +105,19 @@ function App() {
 
         <section id="destinos" className="section">
           <div className="section-heading">
-            <span className="section-heading__eyebrow">Inspiração inicial</span>
-            <h2>Blocos para destacar experiências e estilos de viagem</h2>
+            <span className="section-heading__eyebrow">Experiências que atendemos</span>
+            <h2>Soluções de viagem pensadas para diferentes perfis e necessidades</h2>
             <p>
-              Aqui você não está vendendo pacote de forma genérica. Está apresentando
-              possibilidades com curadoria, posicionamento e valor percebido.
+              Trabalhamos com viagens nacionais e internacionais, sempre com foco em
+              praticidade, segurança, organização e atendimento próximo.
             </p>
           </div>
 
           <div className="trip-grid">
-            {featuredTrips.map((trip) => (
+            {featuredTrips.map((trip, index) => (
               <article className="trip-card" key={trip.title}>
                 <div className="trip-card__media">
-                  <img
-                    src={generic}
-                    alt={`Imagem placeholder para ${trip.title}`}
-                  />
+                  <img src={tripImages[index]} alt={trip.title} />
                   <span className="trip-card__tag">{trip.tag}</span>
                 </div>
 
@@ -123,11 +133,11 @@ function App() {
 
         <section id="diferenciais" className="section section--soft">
           <div className="section-heading">
-            <span className="section-heading__eyebrow">Base da experiência</span>
-            <h2>O site precisa parecer uma agência confiável antes de parecer uma vitrine</h2>
+            <span className="section-heading__eyebrow">Por que escolher a Machado Viagens</span>
+            <h2>Um atendimento pensado para cuidar da sua viagem do começo ao fim</h2>
             <p>
-              Nesta etapa, o foco é mostrar posicionamento, sofisticação e organização
-              da informação.
+              Nosso trabalho combina proximidade, personalização e atenção aos detalhes
+              para que cada roteiro faça sentido para quem vai viver a experiência.
             </p>
           </div>
 
@@ -141,22 +151,22 @@ function App() {
           </div>
         </section>
 
-        <section id="depoimentos" className="section">
+        <section id="atendimento" className="section">
           <div className="section-heading">
-            <span className="section-heading__eyebrow">Prova social</span>
-            <h2>Área pronta para depoimentos reais</h2>
+            <span className="section-heading__eyebrow">Como funciona</span>
+            <h2>Atendimento próximo, claro e cuidadoso em todas as etapas</h2>
             <p>
-              Por enquanto, mantenha placeholders. Quando for publicar, substitua por
-              depoimentos autênticos e verificáveis.
+              Queremos que você tenha segurança para planejar e tranquilidade para viajar,
+              com suporte humano e atenção real ao que importa para a sua experiência.
             </p>
           </div>
 
           <div className="testimonial-grid">
-            {testimonials.map((item) => (
-              <article className="testimonial-card" key={item.author + item.context}>
-                <p className="testimonial-card__quote">“{item.quote}”</p>
-                <strong>{item.author}</strong>
-                <span>{item.context}</span>
+            {serviceSteps.map((item) => (
+              <article className="testimonial-card" key={item.title}>
+                <p className="testimonial-card__quote">{item.description}</p>
+                <strong>{item.title}</strong>
+                <span>{brandContent.name}</span>
               </article>
             ))}
           </div>
@@ -165,24 +175,32 @@ function App() {
         <section id="contato" className="section">
           <div className="cta-box">
             <div>
-              <span className="section-heading__eyebrow">Próxima ação</span>
-              <h2>Pronto para transformar esta base em uma home comercial?</h2>
+              <span className="section-heading__eyebrow">Contato</span>
+              <h2>Pronto para começar a planejar sua próxima viagem?</h2>
+              <p>{contactInfo.whatsappText}</p>
               <p>
-                Depois que esta etapa estiver aprovada visualmente, o próximo passo é
-                adicionar formulário de orçamento, CTA de WhatsApp, páginas internas e
-                refinamentos de conversão.
+                <strong>Atendimento:</strong> {contactInfo.location}
+                <br />
+                <strong>Responsáveis:</strong> {contactInfo.owners.join(' e ')}
+                <br />
+                <strong>WhatsApp:</strong> +55 11 91955-0417
               </p>
             </div>
 
-            <a className="btn btn--primary" href="#top">
-              Validar esta primeira versão
+            <a
+              className="btn btn--primary"
+              href={contactInfo.whatsappLink}
+              target="_blank"
+              rel="noreferrer"
+            >
+              {contactInfo.whatsappLabel}
             </a>
           </div>
         </section>
       </main>
 
       <footer className="site-footer">
-        <p>Machado Viagens • atendimento consultivo • viagens com identidade</p>
+        <p>{contactInfo.footerText}</p>
       </footer>
     </div>
   )
