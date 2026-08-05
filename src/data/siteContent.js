@@ -3,9 +3,8 @@ export const brandContent = {
   eyebrow: 'Agência de viagens com atendimento personalizado',
   title: 'Sua viagem planejada com atenção em cada detalhe',
   description: [
-    'Acreditamos que cada viagem é única, porque cada viajante tem sonhos, expectativas e necessidades diferentes. Por isso, nosso trabalho vai muito além da emissão de passagens e reservas de hotéis.',
-    'Somos uma agência especializada em oferecer um atendimento personalizado, dedicado a entender o perfil de cada cliente para criar roteiros que realmente façam sentido para seus interesses, estilo de viagem e orçamento.',
-    'Porque acreditamos que uma viagem inesquecível começa com um planejamento feito com carinho, atenção e dedicação.',
+    'A Machado Viagens nasceu com o propósito de oferecer um atendimento verdadeiramente personalizado, transformando o planejamento de viagens em uma experiência tranquila e exclusiva. Atuando de forma consultiva, a agência desenvolve roteiros sob medida para cada cliente, conciliando as melhores opções de voos, hospedagens, passeios e experiências, sempre com atenção aos detalhes e suporte antes, durante e após a viagem.',
+    'Nossa missão é proporcionar experiências de viagem únicas por meio de um atendimento personalizado, transparente e dedicado, criando roteiros que atendam às necessidades e aos sonhos de cada viajante com segurança, qualidade e excelência.',
   ],
   primaryCta: {
     label: 'Fale conosco',
@@ -109,8 +108,16 @@ export const contactInfo = {
     'https://wa.me/5511919550417?text=Ol%C3%A1%21%20Gostaria%20de%20planejar%20minha%20pr%C3%B3xima%20viagem.',
   whatsappText:
     'Esqueça o estresse do planejamento. Nós cuidamos de cada detalhe para você só ter o trabalho de fazer as malas. Qual é o seu próximo destino?',
+  email: 'leticia@machadoviagenssp.com',
+  instagram: 'https://www.instagram.com/machado.viagenss?igsh=MThlODQwdzZhbmRsZA==',
+  hours:
+    'Orçamentos: 09h às 18h - segunda a sexta-feira / demais assuntos: assistência 24h',
+  cnpj: '49.310.241/0001-26',
   location: 'Atendimento em todo o Brasil, com base em Osasco - SP',
   serviceArea: 'Brasil todo',
   owners: ['Bruna Santana', 'Leticia Machado'],
-  footerText: 'Machado Viagens • atendimento personalizado • viagens com cuidado em cada detalhe',
+  footerText:
+    'Machado Viagens • atendimento personalizado • CNPJ 49.310.241/0001-26',
+  privacyPolicy:
+    'A Machado Viagens valoriza a privacidade dos seus clientes. As informações fornecidas são utilizadas exclusivamente para o planejamento e a melhoria dos serviços prestados, não sendo comercializadas ou compartilhadas com terceiros, exceto quando necessário para a execução dos serviços contratados. Em caso de dúvidas, entre em contato pelo e-mail leticia@machadoviagenssp.com.',
 }
