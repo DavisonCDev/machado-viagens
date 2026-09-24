@@ -26,12 +26,24 @@ import depoimento05 from './assets/depoimentos/depoimento-05.webp'
 import depoimento06 from './assets/depoimentos/depoimento-06.webp'
 import depoimento07 from './assets/depoimentos/depoimento-07.webp'
 import depoimento08 from './assets/depoimentos/depoimento-08.webp'
+import galeria29 from './assets/FOTO 29.jpeg'
+import galeria30 from './assets/Foto 30.jpeg'
+import galeria31 from './assets/Foto 31.jpeg'
+import galeria32 from './assets/Foto 32.jpeg'
+import galeria33 from './assets/Foto 33.jpeg'
+import galeria34 from './assets/Foto 34.jpeg'
+import galeria35 from './assets/Foto 35.jpeg'
+import galeria37 from './assets/Foto 37.jpeg'
+import videoCafeCacau from './assets/VÍDEO 36.mp4'
+import videoMirante from './assets/VÍDEO 38.mp4'
+import videoTrilha from './assets/VÍDEO 39.mp4'
 import {
   brandContent,
   navLinks,
   featuredTrips,
   highlights,
   serviceSteps,
+  galleryItems,
   trustItems,
   contactInfo,
 } from './data/siteContent'
@@ -52,12 +64,28 @@ const tripAlts = [
   'Vista da janela da aeronave da Azul - Aeroporto de Santos Dumont - Rio de Janeiro - RJ.',
   'Templo de Kom Ombo - Egito.',
 ]
+const galleryMedia = [
+  galeria29,
+  galeria30,
+  galeria31,
+  galeria32,
+  galeria33,
+  galeria34,
+  galeria35,
+  videoCafeCacau,
+  galeria37,
+  videoMirante,
+  videoTrilha,
+]
 
 function App() {
   const [menuOpen, setMenuOpen] = useState(false)
 
   const toggleMenu = () => setMenuOpen((open) => !open)
   const closeMenu = () => setMenuOpen(false)
+  const muteVideo = (video) => {
+    if (video) video.muted = true
+  }
 
   return (
     <div className="site-shell">
@@ -234,11 +262,13 @@ function App() {
             <div className="video-feature__media">
               <video
                 src={videoAcaraje}
-                controls
-                preload="metadata"
-                poster={logoPoster}
+                ref={muteVideo}
+                autoPlay
+                loop
                 muted
                 playsInline
+                preload="auto"
+                poster={logoPoster}
                 className="video-feature__video"
                 aria-label="Mulher baiana fazendo acarajé tradicional em Porto Seguro - BA"
               >
@@ -256,6 +286,51 @@ function App() {
                 história por trás de cada prato é o que transforma um destino em memória.
               </p>
             </div>
+          </div>
+        </section>
+
+        <section id="galeria" className="section">
+          <div className="section-heading">
+            <span className="section-heading__eyebrow">Destinos reais</span>
+            <h2>Lugares que nossos clientes viveram com a Machado Viagens</h2>
+            <p>
+              Registros de viagens planejadas por nós pelo Brasil, da Serra
+              Gaúcha ao litoral baiano, com experiências de cultura,
+              gastronomia e natureza.
+            </p>
+          </div>
+
+          <div className="gallery-grid">
+            {galleryItems.map((item, index) => (
+              <article className="trip-card" key={`${item.title}-${index}`}>
+                <div className="trip-card__media">
+                  {item.type === 'video' ? (
+                    <video
+                      src={galleryMedia[index]}
+                      ref={muteVideo}
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      preload="auto"
+                      aria-label={item.description}
+                    />
+                  ) : (
+                    <img
+                      src={galleryMedia[index]}
+                      alt={item.description}
+                      loading="lazy"
+                    />
+                  )}
+                  <span className="trip-card__tag">{item.tag}</span>
+                </div>
+
+                <div className="trip-card__body">
+                  <h3>{item.title}</h3>
+                  <p>{item.description}</p>
+                </div>
+              </article>
+            ))}
           </div>
         </section>
 

@@ -25,6 +25,7 @@ export const navLinks = [
   { label: 'Experiências', href: '#destinos' },
   { label: 'Diferenciais', href: '#diferenciais' },
   { label: 'Atendimento', href: '#atendimento' },
+  { label: 'Galeria', href: '#galeria' },
   { label: 'Contato', href: '#contato' },
 ]
 
@@ -93,6 +94,86 @@ export const serviceSteps = [
     title: 'Seguimos com você até o embarque',
     description:
       'Damos suporte durante todo o processo para que você tenha mais confiança, menos estresse e a tranquilidade de saber que não está sozinho.',
+  },
+]
+
+export const galleryItems = [
+  {
+    type: 'image',
+    title: 'Rua Torta',
+    tag: 'Gramado - RS',
+    description:
+      'Cliente na rua torta em Gramado - RS. Inspirada na famosa Lombard Street, de São Francisco, a rua Emílio Sorgetz tem pouco mais de 100 metros de curvas floridas e é um dos pontos mais fotografados da Serra Gaúcha.',
+  },
+  {
+    type: 'image',
+    title: 'Catedral da Pedra',
+    tag: 'Canela - RS',
+    description:
+      'Cliente na Catedral da Pedra em Canela - RS. À noite, a fachada ganha um show de luzes com projeção mapeada. A torre de 65 metros guarda um carrilhão de 12 sinos de bronze trazidos da Itália.',
+  },
+  {
+    type: 'image',
+    title: 'Rua Coberta',
+    tag: 'Gramado - RS',
+    description:
+      'Clientes na Rua Coberta de Gramado - RS. Inspirada nas galerias de Milão e Paris, a rua de 100 metros coberta por acrílico se transforma em tapete vermelho durante o Festival de Cinema.',
+  },
+  {
+    type: 'image',
+    title: 'Casa de Cultura Jorge Amado',
+    tag: 'Ilhéus - BA',
+    description:
+      'Cliente na Casa de Cultura Jorge Amado - Ilhéus - BA. O casarão amarelo foi construído pelo pai do escritor com um prêmio da Loteria Federal. Foi ali que Jorge Amado viveu a juventude e escreveu seu primeiro romance.',
+  },
+  {
+    type: 'image',
+    title: 'Detalhes do casarão',
+    tag: 'Ilhéus - BA',
+    description:
+      'Detalhes históricos e azulejos preservados revelam a riqueza cultural do casarão. O espaço também celebra a obra de Jorge Amado, especialmente Gabriela, Cravo e Canela, marco da literatura brasileira inspirado na história e na vida de Ilhéus. Um lugar que conecta literatura, arquitetura, memória e a história do ciclo do cacau.',
+  },
+  {
+    type: 'image',
+    title: 'Jorge Amado',
+    tag: 'Ilhéus - BA',
+    description:
+      'Retrato do escritor brasileiro Jorge Amado, exposto na Casa de Cultura em Ilhéus. Autor brasileiro mais traduzido no mundo, sua obra já foi publicada em 55 países e 49 idiomas.',
+  },
+  {
+    type: 'image',
+    title: 'Praia da Engenhoca',
+    tag: 'Itacaré - BA',
+    description:
+      'Praia da Engenhoca - Itacaré - BA. O nome vem das ruínas de um antigo engenho na trilha de acesso. O riacho de água doce que deságua no mar é perfeito para tirar o sal depois do banho.',
+  },
+  {
+    type: 'video',
+    title: 'Café com Cacau',
+    tag: 'Itacaré - BA',
+    description:
+      'Uma das paradas gastronômicas mais tradicionais e charmosas de Itacaré, famosa por unir a culinária afetiva regional aos sabores marcantes do cacau baiano.',
+  },
+  {
+    type: 'image',
+    title: 'Entrada do Café com Cacau',
+    tag: 'Itacaré - BA',
+    description:
+      'Entrada do Café com Cacau, às margens da BA-001. O lugar nasceu da história de Marly Brito, que cresceu cercada por fazendas de cacau e transformou em negócio a fruta que lhe era proibida provar na infância.',
+  },
+  {
+    type: 'video',
+    title: 'Mirante Serra Grande',
+    tag: 'Uruçuca - BA',
+    description:
+      'Mirante Serra Grande - Uruçuca - BA. A cerca de 80 metros acima do nível do mar, o mirante revela o coqueiral encontrando o mar. O local também funciona como rampa de voo livre, com pouso na areia da Praia do Pé de Serra.',
+  },
+  {
+    type: 'video',
+    title: 'Trilha das 4 Praias',
+    tag: 'Itacaré - BA',
+    description:
+      'Experiência com guia autorizado para a Trilha das 4 Praias - Itacarezinho, Camboinha, Havaizinho e Engenhoca.',
   },
 ]
 

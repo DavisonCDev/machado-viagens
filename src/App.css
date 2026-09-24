@@ -219,13 +219,15 @@
 }
 
 .trip-grid,
+.gallery-grid,
 .highlight-grid,
 .testimonial-grid {
   display: grid;
   gap: 32px;
 }
 
-.trip-grid {
+.trip-grid,
+.gallery-grid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
@@ -261,10 +263,13 @@
   position: relative;
 }
 
-.trip-card__media img {
+.trip-card__media img,
+.trip-card__media video {
+  display: block;
   width: 100%;
   aspect-ratio: 3 / 4;
   object-fit: cover;
+  background: var(--color-surface-soft);
 }
 
 .trip-card__tag {
@@ -586,7 +591,8 @@
 }
 
 @media (max-width: 900px) {
-  .trip-grid {
+  .trip-grid,
+  .gallery-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -605,6 +611,7 @@
 
 @media (max-width: 680px) {
   .trip-grid,
+  .gallery-grid,
   .highlight-grid,
   .testimonial-grid {
     grid-template-columns: 1fr;
