@@ -1,5 +1,5 @@
 import './App.css'
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import {
   MapPin,
   Clock,
@@ -10,81 +10,72 @@ import {
   Building2,
   Menu,
   X,
+  Star,
+  ChevronLeft,
+  ChevronRight,
 } from 'lucide-react'
 import logo from './assets/logo_01_pequeno.png'
 import logoPoster from './assets/logo_01.png'
 import heroImage from './assets/Foto 27.jpeg'
 import destino01 from './assets/Foto 11.jpeg'
 import destino02 from './assets/FOTO 21.jpeg'
-import destino03 from './assets/Foto 01.jpeg'
-import videoAcaraje from './assets/VIDEO.mp4'
-import depoimento01 from './assets/depoimentos/depoimento-01.webp'
-import depoimento02 from './assets/depoimentos/depoimento-02.webp'
-import depoimento03 from './assets/depoimentos/depoimento-03.jpg'
-import depoimento04 from './assets/depoimentos/depoimento-04.webp'
-import depoimento05 from './assets/depoimentos/depoimento-05.webp'
-import depoimento06 from './assets/depoimentos/depoimento-06.webp'
-import depoimento07 from './assets/depoimentos/depoimento-07.webp'
-import depoimento08 from './assets/depoimentos/depoimento-08.webp'
-import galeria29 from './assets/FOTO 29.jpeg'
-import galeria30 from './assets/Foto 30.jpeg'
-import galeria31 from './assets/Foto 31.jpeg'
-import galeria32 from './assets/Foto 32.jpeg'
-import galeria33 from './assets/Foto 33.jpeg'
-import galeria34 from './assets/Foto 34.jpeg'
-import galeria35 from './assets/Foto 35.jpeg'
-import galeria37 from './assets/Foto 37.jpeg'
-import videoCafeCacau from './assets/VÍDEO 36.mp4'
-import videoMirante from './assets/VÍDEO 38.mp4'
-import videoTrilha from './assets/VÍDEO 39.mp4'
+import { galleryMedia, featuredVideoMedia } from './data/galleryMedia'
 import {
   brandContent,
   navLinks,
   featuredTrips,
   highlights,
   serviceSteps,
+  aboutContent,
+  testimonials,
+  featuredVideos,
   galleryItems,
   trustItems,
   contactInfo,
 } from './data/siteContent'
 
-const tripImages = [destino01, destino02, destino03]
-const clientImages = [
-  depoimento01,
-  depoimento02,
-  depoimento03,
-  depoimento04,
-  depoimento05,
-  depoimento06,
-  depoimento07,
-  depoimento08,
-]
+const tripImages = [destino01, destino02]
 const tripAlts = [
   'Praia das Fontes - Ceará: a força das águas doces encontra a imensidão do mar, com bicas que brotam das falésias coloridas.',
   'Vista da janela da aeronave da Azul - Aeroporto de Santos Dumont - Rio de Janeiro - RJ.',
-  'Templo de Kom Ombo - Egito.',
 ]
-const galleryMedia = [
-  galeria29,
-  galeria30,
-  galeria31,
-  galeria32,
-  galeria33,
-  galeria34,
-  galeria35,
-  videoCafeCacau,
-  galeria37,
-  videoMirante,
-  videoTrilha,
-]
-
 function App() {
   const [menuOpen, setMenuOpen] = useState(false)
+  const [showFloatingCta, setShowFloatingCta] = useState(false)
+  const [videoIndex] = useState(() =>
+    Math.floor(Math.random() * featuredVideos.length)
+  )
+  const galleryRef = useRef(null)
+  const heroCtaRef = useRef(null)
+  const contactCtaRef = useRef(null)
+
+  useEffect(() => {
+    const targets = [heroCtaRef.current, contactCtaRef.current].filter(Boolean)
+    const visible = new Set()
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          visible.add(entry.target)
+        } else {
+          visible.delete(entry.target)
+        }
+      })
+      setShowFloatingCta(visible.size === 0)
+    })
+    targets.forEach((target) => observer.observe(target))
+    return () => observer.disconnect()
+  }, [])
 
   const toggleMenu = () => setMenuOpen((open) => !open)
   const closeMenu = () => setMenuOpen(false)
   const muteVideo = (video) => {
     if (video) video.muted = true
+  }
+  const scrollGallery = (direction) => {
+    galleryRef.current?.scrollBy({
+      left: direction * galleryRef.current.clientWidth * 0.8,
+      behavior: 'smooth',
+    })
   }
 
   return (
@@ -135,6 +126,7 @@ function App() {
 
             <div className="hero__actions">
               <a
+                ref={heroCtaRef}
                 className="btn btn--primary"
                 href={brandContent.primaryCta.href}
                 target="_blank"
@@ -194,10 +186,10 @@ function App() {
               <article className="trip-card" key={trip.title}>
                 <div className="trip-card__media">
                   <img src={tripImages[index]} alt={tripAlts[index]} />
-                  <span className="trip-card__tag">{trip.tag}</span>
                 </div>
 
                 <div className="trip-card__body">
+                  <span className="trip-card__tag">{trip.tag}</span>
                   <h3>{trip.title}</h3>
                   <p>{trip.description}</p>
                   <small>{trip.details}</small>
@@ -224,6 +216,20 @@ function App() {
                 <p>{item.description}</p>
               </article>
             ))}
+          </div>
+        </section>
+
+        <section id="sobre" className="section">
+          <div className="section-heading">
+            <span className="section-heading__eyebrow">{aboutContent.eyebrow}</span>
+            <h2>{aboutContent.title}</h2>
+          </div>
+
+          <div className="about-text">
+            {aboutContent.paragraphs.map((paragraph) => (
+              <p key={paragraph}>{paragraph}</p>
+            ))}
+            <strong>{aboutContent.signature}</strong>
           </div>
         </section>
 
@@ -261,7 +267,8 @@ function App() {
           <div className="video-feature">
             <div className="video-feature__media">
               <video
-                src={videoAcaraje}
+                key={videoIndex}
+                src={featuredVideoMedia[videoIndex]}
                 ref={muteVideo}
                 autoPlay
                 loop
@@ -270,20 +277,19 @@ function App() {
                 preload="auto"
                 poster={logoPoster}
                 className="video-feature__video"
-                aria-label="Mulher baiana fazendo acarajé tradicional em Porto Seguro - BA"
+                aria-label={featuredVideos[videoIndex].caption}
               >
                 <p>Seu navegador não suporta vídeo.</p>
               </video>
             </div>
             <div className="video-feature__content">
-              <span className="eyebrow">Cultura baiana</span>
-              <h3>Acarajé feito na hora</h3>
+              <span className="eyebrow">{featuredVideos[videoIndex].eyebrow}</span>
+              <h3>{featuredVideos[videoIndex].title}</h3>
               <p className="video-feature__caption">
-                Mulher baiana fazendo acarajé tradicional em Porto Seguro - BA.
+                {featuredVideos[videoIndex].caption}
               </p>
               <p className="video-feature__text">
-                A experiência local faz parte de toda viagem. Conhecer a tradição, o sabor e a
-                história por trás de cada prato é o que transforma um destino em memória.
+                {featuredVideos[videoIndex].text}
               </p>
             </div>
           </div>
@@ -294,43 +300,67 @@ function App() {
             <span className="section-heading__eyebrow">Destinos reais</span>
             <h2>Lugares que nossos clientes viveram com a Machado Viagens</h2>
             <p>
-              Registros de viagens planejadas por nós pelo Brasil, da Serra
-              Gaúcha ao litoral baiano, com experiências de cultura,
+              Registros de viagens planejadas por nós pelo Brasil e pelo
+              mundo, do Egito à Serra Gaúcha, com experiências de cultura,
               gastronomia e natureza.
             </p>
           </div>
 
-          <div className="gallery-grid">
-            {galleryItems.map((item, index) => (
-              <article className="trip-card" key={`${item.title}-${index}`}>
-                <div className="trip-card__media">
-                  {item.type === 'video' ? (
-                    <video
-                      src={galleryMedia[index]}
-                      ref={muteVideo}
-                      autoPlay
-                      loop
-                      muted
-                      playsInline
-                      preload="auto"
-                      aria-label={item.description}
-                    />
-                  ) : (
-                    <img
-                      src={galleryMedia[index]}
-                      alt={item.description}
-                      loading="lazy"
-                    />
-                  )}
-                  <span className="trip-card__tag">{item.tag}</span>
-                </div>
+          <div className="gallery-carousel__wrap">
+            <div className="gallery-carousel" ref={galleryRef}>
+              {galleryItems.map((item, index) => (
+                <article
+                  className="trip-card gallery-card"
+                  key={`${item.title}-${index}`}
+                >
+                  <div className="trip-card__media">
+                    {item.type === 'video' ? (
+                      <video
+                        src={galleryMedia[index]}
+                        ref={muteVideo}
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        preload="auto"
+                        aria-label={item.description}
+                      />
+                    ) : (
+                      <img
+                        src={galleryMedia[index]}
+                        alt={item.description}
+                        loading="lazy"
+                      />
+                    )}
+                  </div>
 
-                <div className="trip-card__body">
-                  <h3>{item.title}</h3>
-                  <p>{item.description}</p>
-                </div>
-              </article>
-            ))}
+                  <div className="trip-card__body">
+                    <span className="trip-card__tag">{item.tag}</span>
+                    <h3>{item.title}</h3>
+                    <p>{item.description}</p>
+                  </div>
+                </article>
+              ))}
+            </div>
+
+            <div className="gallery-carousel__nav">
+              <button
+                type="button"
+                className="gallery-carousel__btn"
+                onClick={() => scrollGallery(-1)}
+                aria-label="Ver destinos anteriores"
+              >
+                <ChevronLeft size={22} aria-hidden="true" />
+              </button>
+              <button
+                type="button"
+                className="gallery-carousel__btn"
+                onClick={() => scrollGallery(1)}
+                aria-label="Ver próximos destinos"
+              >
+                <ChevronRight size={22} aria-hidden="true" />
+              </button>
+            </div>
           </div>
         </section>
 
@@ -339,31 +369,40 @@ function App() {
             <span className="section-heading__eyebrow">Satisfação dos clientes</span>
             <h2>Histórias reais de quem viajou com a gente</h2>
             <p>
-              Cada imagem é um registro de experiências vividas pelos nossos clientes em
-              destinos especiais ao redor do Brasil e do mundo.
+              Depoimentos de clientes que viveram experiências em destinos
+              especiais pelo Brasil e pelo mundo.
             </p>
           </div>
 
-          <div className="marquee" aria-label="Carrossel de fotos de clientes">
+          <div className="marquee" aria-label="Carrossel de depoimentos de clientes">
             <div className="marquee__track">
-              {clientImages.map((src, index) => (
-                <img
-                  key={index}
-                  src={src}
-                  alt={`Foto de depoimento de cliente ${index + 1}`}
-                  className="marquee__item"
-                  loading="lazy"
-                />
+              {testimonials.map((item) => (
+                <article className="quote-card" key={item.name}>
+                  <div className="quote-card__stars" aria-label="Avaliação 5 de 5">
+                    {Array.from({ length: 5 }, (_, i) => (
+                      <Star key={i} size={16} fill="currentColor" aria-hidden="true" />
+                    ))}
+                  </div>
+                  <p className="quote-card__text">{item.text}</p>
+                  <footer className="quote-card__footer">
+                    <strong>{item.name}</strong>
+                    <span>{item.date}</span>
+                  </footer>
+                </article>
               ))}
-              {clientImages.map((src, index) => (
-                <img
-                  key={`dup-${index}`}
-                  src={src}
-                  alt=""
-                  className="marquee__item"
-                  loading="lazy"
-                  aria-hidden="true"
-                />
+              {testimonials.map((item) => (
+                <article className="quote-card" key={`dup-${item.name}`} aria-hidden="true">
+                  <div className="quote-card__stars">
+                    {Array.from({ length: 5 }, (_, i) => (
+                      <Star key={i} size={16} fill="currentColor" aria-hidden="true" />
+                    ))}
+                  </div>
+                  <p className="quote-card__text">{item.text}</p>
+                  <footer className="quote-card__footer">
+                    <strong>{item.name}</strong>
+                    <span>{item.date}</span>
+                  </footer>
+                </article>
               ))}
             </div>
           </div>
@@ -406,7 +445,7 @@ function App() {
                     className="contact-link"
                   >
                     <Camera size={22} aria-hidden="true" />
-                    <span>Instagram/@machado.viagenss</span>
+                    <span>Instagram @machado.viagenss</span>
                   </a>
                 </li>
                 <li>
@@ -417,7 +456,7 @@ function App() {
                     className="contact-link"
                   >
                     <Phone size={22} aria-hidden="true" />
-                    <span>WhatsApp/+55 11 91955-0417</span>
+                    <span>WhatsApp +55 11 91955-0417</span>
                   </a>
                 </li>
                 <li>
@@ -428,6 +467,7 @@ function App() {
             </div>
 
             <a
+              ref={contactCtaRef}
               className="btn btn--primary"
               href={contactInfo.whatsappLink}
               target="_blank"
@@ -445,7 +485,7 @@ function App() {
       </footer>
 
       <a
-        className="floating-cta"
+        className={`floating-cta${showFloatingCta ? ' floating-cta--visible' : ''}`}
         href={brandContent.primaryCta.href}
         target="_blank"
         rel="noreferrer"
