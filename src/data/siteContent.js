@@ -1,6 +1,5 @@
 export const brandContent = {
   name: 'Machado Viagens',
-  eyebrow: 'Agência de viagens com atendimento personalizado',
   title: 'Sua viagem planejada com atenção em cada detalhe',
   description: [
     'Roteiros sob medida com voos, hospedagens, passeios e experiências pensados para o seu perfil. Você viaja tranquilo, com suporte humano em cada etapa.',
@@ -14,7 +13,7 @@ export const brandContent = {
     href: '#destinos',
   },
   floatingCard: {
-    label: 'Atendimento próximo e humanizado',
+    label: 'Agência de viagens com atendimento personalizado',
     title: 'Bruna Santana e Leticia Machado',
     text: 'Planejamento nacional e internacional com atenção aos detalhes, suporte em cada etapa e foco em uma experiência tranquila para o cliente.',
   },
@@ -458,6 +457,20 @@ export const contactInfo = {
   whatsappLabel: 'Fale conosco',
   whatsappLink:
     'https://wa.me/5511919550417?text=Ol%C3%A1%21%20Gostaria%20de%20planejar%20minha%20pr%C3%B3xima%20viagem.',
+  consultants: [
+    {
+      name: 'Bruna Santana',
+      phone: '+55 11 91955-0417',
+      whatsapp:
+        'https://wa.me/5511919550417?text=Ol%C3%A1%2C%20Bruna%21%20Gostaria%20de%20planejar%20minha%20pr%C3%B3xima%20viagem.',
+    },
+    {
+      name: 'Leticia Machado',
+      phone: '+55 11 98554-3513',
+      whatsapp:
+        'https://wa.me/5511985543513?text=Ol%C3%A1%2C%20Leticia%21%20Gostaria%20de%20planejar%20minha%20pr%C3%B3xima%20viagem.',
+    },
+  ],
   whatsappText:
     'Esqueça o estresse do planejamento. Nós cuidamos de cada detalhe para você só ter o trabalho de fazer as malas. Qual é o seu próximo destino?',
   email: 'leticia@machadoviagenssp.com',

@@ -3,11 +3,9 @@ import { useEffect, useRef, useState } from 'react'
 import {
   MapPin,
   Clock,
-  Users,
   Mail,
   Camera,
   Phone,
-  Building2,
   Menu,
   X,
   Star,
@@ -17,8 +15,10 @@ import {
 import logo from './assets/logo_01_pequeno.png'
 import logoPoster from './assets/logo_01.png'
 import heroImage from './assets/Foto 27.jpeg'
-import destino01 from './assets/Foto 11.jpeg'
-import destino02 from './assets/FOTO 21.jpeg'
+import destino01 from './assets/Foto 38.jpeg'
+import destino02 from './assets/Foto 39.jpeg'
+import brunaPhoto from './assets/bruna.jpeg'
+import leticiaPhoto from './assets/leticia.jpeg'
 import { galleryMedia, featuredVideoMedia } from './data/galleryMedia'
 import {
   brandContent,
@@ -35,9 +35,10 @@ import {
 } from './data/siteContent'
 
 const tripImages = [destino01, destino02]
+const consultantPhotos = [brunaPhoto, leticiaPhoto]
 const tripAlts = [
-  'Praia das Fontes - Ceará: a força das águas doces encontra a imensidão do mar, com bicas que brotam das falésias coloridas.',
-  'Vista da janela da aeronave da Azul - Aeroporto de Santos Dumont - Rio de Janeiro - RJ.',
+  'Vista da varanda de um resort pé na areia, com coqueiros, lagoa e o mar ao fundo.',
+  'Piscina de resort com bar molhado de quiosque de palha, coqueiros e bandeira do Brasil.',
 ]
 function App() {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -114,8 +115,6 @@ function App() {
       <main id="top">
         <section className="hero section">
           <div className="hero__content">
-            <span className="eyebrow">{brandContent.eyebrow}</span>
-
             <h1>{brandContent.title}</h1>
 
             {brandContent.description.map((paragraph) => (
@@ -408,7 +407,7 @@ function App() {
           </div>
         </section>
 
-        <section id="contato" className="section">
+        <section id="contato" className="section" ref={contactCtaRef}>
           <div className="cta-box">
             <div>
               <span className="section-heading__eyebrow">Contato</span>
@@ -423,10 +422,6 @@ function App() {
                 <li>
                   <Clock size={22} aria-hidden="true" />
                   <span>{contactInfo.hours}</span>
-                </li>
-                <li>
-                  <Users size={22} aria-hidden="true" />
-                  <span>Responsáveis: {contactInfo.owners.join(' e ')}</span>
                 </li>
                 <li>
                   <a
@@ -448,33 +443,33 @@ function App() {
                     <span>Instagram @machado.viagenss</span>
                   </a>
                 </li>
-                <li>
-                  <a
-                    href={contactInfo.whatsappLink}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="contact-link"
-                  >
-                    <Phone size={22} aria-hidden="true" />
-                    <span>WhatsApp +55 11 91955-0417</span>
-                  </a>
-                </li>
-                <li>
-                  <Building2 size={22} aria-hidden="true" />
-                  <span>CNPJ {contactInfo.cnpj}</span>
-                </li>
               </ul>
             </div>
 
-            <a
-              ref={contactCtaRef}
-              className="btn btn--primary"
-              href={contactInfo.whatsappLink}
-              target="_blank"
-              rel="noreferrer"
-            >
-              {contactInfo.whatsappLabel}
-            </a>
+            <div className="consultants">
+              {contactInfo.consultants.map((consultant, index) => (
+                <div className="consultant-card" key={consultant.name}>
+                  <img
+                    src={consultantPhotos[index]}
+                    alt={`Foto de ${consultant.name}`}
+                    className="consultant-card__photo"
+                  />
+                  <strong>{consultant.name}</strong>
+                  <span className="consultant-card__phone">
+                    {consultant.phone}
+                  </span>
+                  <a
+                    className="btn btn--primary consultant-card__btn"
+                    href={consultant.whatsapp}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <Phone size={18} aria-hidden="true" />
+                    Falar no WhatsApp
+                  </a>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
       </main>

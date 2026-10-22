@@ -465,6 +465,50 @@
   line-height: 1.5;
 }
 
+.consultants {
+  display: grid;
+  gap: 20px;
+  align-content: start;
+}
+
+.consultant-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 26px;
+  border-radius: calc(var(--radius-lg) + 4px);
+  background: rgba(255, 250, 242, 0.92);
+  border: 1px solid rgba(168, 120, 14, 0.18);
+  box-shadow: var(--shadow-soft);
+  text-align: center;
+}
+
+.consultant-card__photo {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid rgba(168, 120, 14, 0.25);
+}
+
+.consultant-card strong {
+  color: var(--color-text);
+  font-size: 1.05rem;
+}
+
+.consultant-card__phone {
+  color: var(--color-text-muted);
+  font-size: 0.92rem;
+}
+
+.consultant-card__btn {
+  gap: 8px;
+  min-height: 46px;
+  margin-top: 8px;
+  font-size: 0.92rem;
+}
+
 .contact-list svg {
   flex-shrink: 0;
   color: var(--color-primary-dark);
