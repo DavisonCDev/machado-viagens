@@ -408,52 +408,22 @@ function App() {
         </section>
 
         <section id="contato" className="section" ref={contactCtaRef}>
-          <div className="cta-box">
-            <div>
-              <span className="section-heading__eyebrow">Contato</span>
-              <h2>Pronto para começar a planejar sua próxima viagem?</h2>
-              <p>{contactInfo.whatsappText}</p>
+          <div className="section-heading section-heading--center">
+            <span className="section-heading__eyebrow">Contato</span>
+            <h2>Pronto para começar a planejar sua próxima viagem?</h2>
+            <p>{contactInfo.whatsappText}</p>
+          </div>
 
-              <ul className="contact-list" aria-label="Informações de contato">
-                <li>
-                  <MapPin size={22} aria-hidden="true" />
-                  <span>{contactInfo.location}</span>
-                </li>
-                <li>
-                  <Clock size={22} aria-hidden="true" />
-                  <span>{contactInfo.hours}</span>
-                </li>
-                <li>
-                  <a
-                    href={`mailto:${contactInfo.email}`}
-                    className="contact-link"
-                  >
-                    <Mail size={22} aria-hidden="true" />
-                    <span>{contactInfo.email}</span>
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href={contactInfo.instagram}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="contact-link"
-                  >
-                    <Camera size={22} aria-hidden="true" />
-                    <span>Instagram @machado.viagenss</span>
-                  </a>
-                </li>
-              </ul>
-            </div>
-
-            <div className="consultants">
-              {contactInfo.consultants.map((consultant, index) => (
-                <div className="consultant-card" key={consultant.name}>
-                  <img
-                    src={consultantPhotos[index]}
-                    alt={`Foto de ${consultant.name}`}
-                    className="consultant-card__photo"
-                  />
+          <div className="consultants">
+            {contactInfo.consultants.map((consultant, index) => (
+              <article className="consultant-card" key={consultant.name}>
+                <img
+                  src={consultantPhotos[index]}
+                  alt={`Foto de ${consultant.name}`}
+                  className="consultant-card__photo"
+                  style={{ objectPosition: consultant.photoPosition }}
+                />
+                <div className="consultant-card__body">
                   <strong>{consultant.name}</strong>
                   <span className="consultant-card__phone">
                     {consultant.phone}
@@ -464,13 +434,68 @@ function App() {
                     target="_blank"
                     rel="noreferrer"
                   >
-                    <Phone size={18} aria-hidden="true" />
-                    Falar no WhatsApp
+                    <Phone size={16} aria-hidden="true" />
+                    WhatsApp
                   </a>
                 </div>
-              ))}
-            </div>
+              </article>
+            ))}
           </div>
+
+          <ul className="contact-channels" aria-label="Outros canais de contato">
+            <li className="contact-channel">
+              <span className="contact-channel__icon">
+                <Mail size={20} aria-hidden="true" />
+              </span>
+              <div className="contact-channel__info">
+                <span className="contact-channel__label">E-mail</span>
+                <a
+                  className="contact-channel__value"
+                  href={`mailto:${contactInfo.email}`}
+                >
+                  {contactInfo.email}
+                </a>
+              </div>
+            </li>
+            <li className="contact-channel">
+              <span className="contact-channel__icon">
+                <Camera size={20} aria-hidden="true" />
+              </span>
+              <div className="contact-channel__info">
+                <span className="contact-channel__label">Instagram</span>
+                <a
+                  className="contact-channel__value"
+                  href={contactInfo.instagram}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  @machado.viagenss
+                </a>
+              </div>
+            </li>
+            <li className="contact-channel">
+              <span className="contact-channel__icon">
+                <MapPin size={20} aria-hidden="true" />
+              </span>
+              <div className="contact-channel__info">
+                <span className="contact-channel__label">Atendimento</span>
+                <span className="contact-channel__value">
+                  {contactInfo.location}
+                </span>
+              </div>
+            </li>
+            <li className="contact-channel">
+              <span className="contact-channel__icon">
+                <Clock size={20} aria-hidden="true" />
+              </span>
+              <div className="contact-channel__info">
+                <span className="contact-channel__label">Horário</span>
+                <span className="contact-channel__value">
+                  {contactInfo.hours}
+                </span>
+              </div>
+            </li>
+          </ul>
         </section>
       </main>
 

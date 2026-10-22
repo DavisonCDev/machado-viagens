@@ -460,12 +460,14 @@ export const contactInfo = {
   consultants: [
     {
       name: 'Bruna Santana',
+      photoPosition: 'center 20%',
       phone: '+55 11 91955-0417',
       whatsapp:
         'https://wa.me/5511919550417?text=Ol%C3%A1%2C%20Bruna%21%20Gostaria%20de%20planejar%20minha%20pr%C3%B3xima%20viagem.',
     },
     {
       name: 'Leticia Machado',
+      photoPosition: 'center 15%',
       phone: '+55 11 98554-3513',
       whatsapp:
         'https://wa.me/5511985543513?text=Ol%C3%A1%2C%20Leticia%21%20Gostaria%20de%20planejar%20minha%20pr%C3%B3xima%20viagem.',
