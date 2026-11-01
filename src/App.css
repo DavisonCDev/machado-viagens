@@ -695,6 +695,12 @@ a.contact-channel__value:hover {
   line-height: 1.6;
 }
 
+.site-footer__credits {
+  margin-top: 16px;
+  font-size: 0.75rem;
+  color: var(--color-text-soft);
+}
+
 .marquee {
   overflow: hidden;
   width: 100%;

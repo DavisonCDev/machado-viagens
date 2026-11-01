@@ -502,6 +502,9 @@ function App() {
       <footer className="site-footer">
         <p>{contactInfo.footerText}</p>
         <p className="site-footer__privacy">{contactInfo.privacyPolicy}</p>
+        <div className="site-footer__credits">
+          <small>Developed by OK Smart</small>
+        </div>
       </footer>
 
       <a
