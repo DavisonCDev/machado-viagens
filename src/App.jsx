@@ -14,7 +14,7 @@ import {
 } from 'lucide-react'
 import logo from './assets/logo_01_pequeno.png'
 import logoPoster from './assets/logo_01.png'
-import heroImage from './assets/Foto 27.jpeg'
+import heroImage from './assets/FOTO 27.jpeg'
 import destino01 from './assets/Foto 38.jpeg'
 import destino02 from './assets/Foto 39.jpeg'
 import brunaPhoto from './assets/bruna.jpeg'
