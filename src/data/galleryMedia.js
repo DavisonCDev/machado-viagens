@@ -37,6 +37,7 @@ import foto40 from '../assets/FOTO 40.jpg'
 import foto41 from '../assets/FOTO 41.jpg'
 import foto42 from '../assets/FOTO 42.jpg'
 import foto43 from '../assets/FOTO 43.jpg'
+import foto44 from '../assets/FOTO 44.jpeg'
 import videoAcaraje from '../assets/VIDEO.mp4'
 
 export const galleryMedia = [
@@ -80,6 +81,7 @@ export const galleryMedia = [
   foto41,
   foto42,
   foto43,
+  foto44,
 ]
 
 export const featuredVideoMedia = [

@@ -219,7 +219,6 @@
 }
 
 .trip-grid,
-.highlight-grid,
 .testimonial-grid {
   display: grid;
   gap: 32px;
@@ -230,16 +229,11 @@
   justify-content: center;
 }
 
-.highlight-grid {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-}
-
 .testimonial-grid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .trip-card,
-.highlight-card,
 .testimonial-card,
 .video-feature {
   background: rgba(255, 250, 242, 0.86);
@@ -251,7 +245,6 @@
 }
 
 .trip-card:hover,
-.highlight-card:hover,
 .testimonial-card:hover,
 .video-feature:hover {
   transform: translateY(-4px);
@@ -285,15 +278,13 @@
   padding: 24px;
 }
 
-.trip-card__body h3,
-.highlight-card h3 {
+.trip-card__body h3 {
   margin: 0 0 12px;
   font-size: 1.3rem;
   color: var(--color-text);
 }
 
 .trip-card__body p,
-.highlight-card p,
 .testimonial-card span {
   margin: 0;
   color: var(--color-text-muted);
@@ -306,7 +297,6 @@
   font-weight: 600;
 }
 
-.highlight-card,
 .testimonial-card {
   padding: 28px;
 }
@@ -763,10 +753,6 @@ a.contact-channel__value:hover {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .highlight-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
   .testimonial-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -774,7 +760,6 @@ a.contact-channel__value:hover {
 
 @media (max-width: 680px) {
   .trip-grid,
-  .highlight-grid,
   .testimonial-grid {
     grid-template-columns: 1fr;
   }
@@ -866,7 +851,6 @@ a.contact-channel__value:hover {
   }
 
   .trip-card__body,
-  .highlight-card,
   .testimonial-card {
     padding: 22px;
   }

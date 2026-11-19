@@ -24,7 +24,6 @@ import {
   brandContent,
   navLinks,
   featuredTrips,
-  highlights,
   serviceSteps,
   aboutContent,
   testimonials,
@@ -193,26 +192,6 @@ function App() {
                   <p>{trip.description}</p>
                   <small>{trip.details}</small>
                 </div>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        <section id="diferenciais" className="section section--soft">
-          <div className="section-heading">
-            <span className="section-heading__eyebrow">Por que escolher a Machado Viagens</span>
-            <h2>Um atendimento pensado para cuidar da sua viagem do começo ao fim</h2>
-            <p>
-              Nosso trabalho combina proximidade, personalização e atenção aos detalhes
-              para que cada roteiro faça sentido para quem vai viver a experiência.
-            </p>
-          </div>
-
-          <div className="highlight-grid">
-            {highlights.map((item) => (
-              <article className="highlight-card" key={item.title}>
-                <h3>{item.title}</h3>
-                <p>{item.description}</p>
               </article>
             ))}
           </div>

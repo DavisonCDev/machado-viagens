@@ -21,7 +21,6 @@ export const brandContent = {
 
 export const navLinks = [
   { label: 'Experiências', href: '#destinos' },
-  { label: 'Diferenciais', href: '#diferenciais' },
   { label: 'Sobre', href: '#sobre' },
   { label: 'Atendimento', href: '#atendimento' },
   { label: 'Galeria', href: '#galeria' },
@@ -44,29 +43,6 @@ export const featuredTrips = [
       'Roteiros mais complexos, especiais ou exclusivos, pensados com curadoria para reduzir riscos e transformar a viagem em uma experiência memorável.',
     details:
       'Excelente para lua de mel, luxo, excursões, grupos e viagens nacionais ou internacionais.',
-  },
-]
-
-export const highlights = [
-  {
-    title: 'Acompanhamento em cada etapa',
-    description:
-      'Desde o primeiro contato, cuidamos do planejamento com atenção, orientando escolhas e garantindo mais tranquilidade para a viagem.',
-  },
-  {
-    title: 'Atendimento humanizado',
-    description:
-      'Gostamos de conhecer cada cliente, entender expectativas e montar propostas que façam sentido para o perfil, estilo e orçamento.',
-  },
-  {
-    title: 'Experiências memoráveis',
-    description:
-      'Nosso objetivo vai além da venda: queremos criar viagens especiais, bem planejadas e marcantes do início ao fim.',
-  },
-  {
-    title: 'Nacional e internacional',
-    description:
-      'Atendemos viagens pelo Brasil e para o exterior, sempre com curadoria, organização e suporte personalizado.',
   },
 ]
 
@@ -415,6 +391,13 @@ export const galleryItems = [
     tag: 'Bonito - MS',
     description:
       'Clientes na flutuação em rio de águas cristalinas - Bonito - MS. O calcário do solo funciona como filtro natural e deixa a água tão transparente que os peixes parecem flutuar no ar.',
+  },
+  {
+    type: 'image',
+    title: 'Praia de Calhetas',
+    tag: 'Cabo de Santo Agostinho - PE',
+    description:
+      'Clientes no letreiro da Praia de Calhetas, um dos pontos mais fotografados da região. A pequena enseada é considerada uma das praias mais bonitas de Pernambuco e é famosa pela tirolesa que desce em direção ao mar.',
   },
 ]
 
