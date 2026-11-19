@@ -247,7 +247,6 @@ function App() {
               <article className="testimonial-card" key={item.title}>
                 <p className="testimonial-card__quote">{item.description}</p>
                 <strong>{item.title}</strong>
-                <span>{brandContent.name}</span>
               </article>
             ))}
           </div>

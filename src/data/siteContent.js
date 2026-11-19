@@ -14,7 +14,7 @@ export const brandContent = {
   },
   floatingCard: {
     label: 'Agência de viagens com atendimento personalizado',
-    title: 'Bruna Santana e Leticia Machado',
+    title: 'Bruna Santana e Letícia Machado',
     text: 'Planejamento nacional e internacional com atenção aos detalhes, suporte em cada etapa e foco em uma experiência tranquila para o cliente.',
   },
 }
@@ -95,7 +95,7 @@ export const aboutContent = {
     'A Machado Viagens nasceu com o propósito de oferecer um atendimento verdadeiramente personalizado, transformando o planejamento de viagens em uma experiência tranquila e exclusiva. Atuando de forma consultiva, a agência desenvolve roteiros sob medida para cada cliente, conciliando as melhores opções de voos, hospedagens, passeios e experiências, sempre com atenção aos detalhes e suporte antes, durante e após a viagem.',
     'Nossa missão é proporcionar experiências de viagem únicas por meio de um atendimento personalizado, transparente e dedicado, criando roteiros que atendam às necessidades e aos sonhos de cada viajante com segurança, qualidade e excelência.',
   ],
-  signature: 'Bruna Santana e Leticia Machado',
+  signature: 'Bruna Santana e Letícia Machado',
 }
 
 export const testimonials = [
@@ -466,11 +466,11 @@ export const contactInfo = {
         'https://wa.me/5511919550417?text=Ol%C3%A1%2C%20Bruna%21%20Gostaria%20de%20planejar%20minha%20pr%C3%B3xima%20viagem.',
     },
     {
-      name: 'Leticia Machado',
+      name: 'Letícia Machado',
       photoPosition: 'center 15%',
       phone: '+55 11 98554-3513',
       whatsapp:
-        'https://wa.me/5511985543513?text=Ol%C3%A1%2C%20Leticia%21%20Gostaria%20de%20planejar%20minha%20pr%C3%B3xima%20viagem.',
+        'https://wa.me/5511985543513?text=Ol%C3%A1%2C%20Let%C3%ADcia%21%20Gostaria%20de%20planejar%20minha%20pr%C3%B3xima%20viagem.',
     },
   ],
   whatsappText:
@@ -482,7 +482,7 @@ export const contactInfo = {
   cnpj: '49.310.241/0001-26',
   location: 'Atendimento em todo o Brasil, com base em Osasco - SP',
   serviceArea: 'Brasil todo',
-  owners: ['Bruna Santana', 'Leticia Machado'],
+  owners: ['Bruna Santana', 'Letícia Machado'],
   footerText:
     'Machado Viagens • atendimento personalizado • CNPJ 49.310.241/0001-26',
   privacyPolicy:
