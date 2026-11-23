@@ -686,6 +686,8 @@ a.contact-channel__value:hover {
 }
 
 .site-footer__credits {
+  display: grid;
+  gap: 4px;
   margin-top: 16px;
   font-size: 0.75rem;
   color: var(--color-text-soft);

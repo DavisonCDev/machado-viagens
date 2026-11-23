@@ -35,6 +35,10 @@ import {
 
 const tripImages = [destino01, destino02]
 const consultantPhotos = [brunaPhoto, leticiaPhoto]
+const foundingYear = 2025
+const currentYear = new Date().getFullYear()
+const siteYears =
+  currentYear > foundingYear ? `${foundingYear} - ${currentYear}` : `${foundingYear}`
 const tripAlts = [
   'Vista da varanda de um resort pé na areia, com coqueiros, lagoa e o mar ao fundo.',
   'Piscina de resort com bar molhado de quiosque de palha, coqueiros e bandeira do Brasil.',
@@ -481,6 +485,7 @@ function App() {
         <p>{contactInfo.footerText}</p>
         <p className="site-footer__privacy">{contactInfo.privacyPolicy}</p>
         <div className="site-footer__credits">
+          <small>© {siteYears} Machado Viagens</small>
           <small>Developed by OK Smart</small>
         </div>
       </footer>
