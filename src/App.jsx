@@ -35,7 +35,7 @@ import {
 
 const tripImages = [destino01, destino02]
 const consultantPhotos = [brunaPhoto, leticiaPhoto]
-const foundingYear = 2025
+const foundingYear = 2026
 const currentYear = new Date().getFullYear()
 const siteYears =
   currentYear > foundingYear ? `${foundingYear} - ${currentYear}` : `${foundingYear}`
